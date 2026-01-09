@@ -1,0 +1,24 @@
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import SplashScreen from '../screens/SplashScreen';
+import Home from '../screens/Home';
+
+export type RootStackParamList = {
+  splashscreen: undefined;
+  home: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+function AppContent() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name={'splashscreen'} component={SplashScreen} />
+        <Stack.Screen name={'home'} component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default AppContent;
